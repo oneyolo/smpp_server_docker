@@ -7,14 +7,11 @@ docker image for SMPP simulator from http://www.seleniumsoftware.com/
 # usage           
 1. build:
 ```sh
-docker build -t komuw/smpp_server:<tag> .
+docker build -t smpp/smppsim:<tag> .
 ```
 
 2. run:
 ```sh
-docker run -it -P komuw/smpp_server     
+docker run -it -P smpp/smppsim     
 ```
-                          
 
-
-![terminal showing image usage](https://github.com/komuW/smpp_server_docker/blob/master/terminal_with_SMPP_simulator_running.png)
