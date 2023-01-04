@@ -1,6 +1,4 @@
-FROM openjdk:8-jre-slim
-
-MAINTAINER komuW <komuw05@gmail.com>
+FROM openjdk:8
 
 RUN apt -y autoremove && \
     apt -y clean && \
@@ -12,7 +10,7 @@ COPY SMPPSim /app
 
 RUN chmod +x /app/startsmppsim.sh
 
-EXPOSE 8884
+EXPOSE 8885
 
 EXPOSE 2775
 

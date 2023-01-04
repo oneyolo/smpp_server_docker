@@ -1,12 +1,28 @@
 package tests;
-import tests.exceptions.*;
-import junit.framework.*;
+
+import com.logica.smpp.Connection;
+import com.logica.smpp.Data;
+import com.logica.smpp.NotSynchronousException;
+import com.logica.smpp.Session;
+import com.logica.smpp.TCPIPConnection;
+import com.logica.smpp.TimeoutException;
+import com.logica.smpp.WrongSessionStateException;
+import com.logica.smpp.pdu.BindReceiver;
+import com.logica.smpp.pdu.BindRequest;
+import com.logica.smpp.pdu.DeliverSM;
+import com.logica.smpp.pdu.EnquireLinkResp;
+import com.logica.smpp.pdu.PDU;
+import com.logica.smpp.pdu.PDUException;
+import com.logica.smpp.pdu.Request;
+import com.logica.smpp.pdu.Response;
+import junit.framework.TestCase;
+import tests.exceptions.BindReceiverException;
+import tests.exceptions.DeliverSmFailedException;
 
 import java.io.IOException;
-import java.net.*;
-import java.util.logging.*;
-import com.logica.smpp.*;
-import com.logica.smpp.pdu.*;
+import java.net.SocketException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class SmppsimDeliverSmTests extends TestCase {
 
@@ -41,7 +57,7 @@ public class SmppsimDeliverSmTests extends TestCase {
 		Connection conn;
 		// get a receiver session
 		try {
-			conn = new TCPIPConnection(smppHost, smppAltPort2);
+			conn = new TCPIPConnection(smppHost, smppPort);
 			session = new Session(conn);
 			BindRequest breq = new BindReceiver();
 			breq.setSystemId(smppAccountName);

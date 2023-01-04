@@ -1,13 +1,34 @@
 package tests;
-import tests.exceptions.*;
-import junit.framework.*;
+
+import com.logica.smpp.Connection;
+import com.logica.smpp.Data;
+import com.logica.smpp.NotSynchronousException;
+import com.logica.smpp.Session;
+import com.logica.smpp.TCPIPConnection;
+import com.logica.smpp.TimeoutException;
+import com.logica.smpp.WrongSessionStateException;
+import com.logica.smpp.pdu.BindRequest;
+import com.logica.smpp.pdu.BindTransciever;
+import com.logica.smpp.pdu.BindTransmitter;
+import com.logica.smpp.pdu.DeliverSM;
+import com.logica.smpp.pdu.EnquireLinkResp;
+import com.logica.smpp.pdu.PDU;
+import com.logica.smpp.pdu.PDUException;
+import com.logica.smpp.pdu.Request;
+import com.logica.smpp.pdu.Response;
+import com.logica.smpp.pdu.SubmitSM;
+import com.logica.smpp.pdu.SubmitSMResp;
+import com.logica.smpp.pdu.UnbindResp;
+import com.logica.smpp.util.ByteBuffer;
+import junit.framework.TestCase;
+import tests.exceptions.BindReceiverException;
+import tests.exceptions.BindTransmitterException;
+import tests.exceptions.SubmitSmFailedException;
 
 import java.io.IOException;
-import java.net.*;
-import java.util.logging.*;
-import com.logica.smpp.*;
-import com.logica.smpp.pdu.*;
-import com.logica.smpp.util.*;
+import java.net.SocketException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class SmppsimSubmitSmTests extends TestCase {
 
