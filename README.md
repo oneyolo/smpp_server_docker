@@ -15,3 +15,8 @@ docker build -t smpp/smppsim:<tag> .
 docker run -it -P smpp/smppsim     
 ```
 
+# docker-compose说明
+在项目目录smpp_server_docker执行
+```sh
+docker build -t smppsim:0.1 .
+docker-compose up -d
