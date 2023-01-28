@@ -1,0 +1,23 @@
+FROM openjdk:8
+
+MAINTAINER "shigy09@chinatelecom.cn"
+
+LABEL AUTHOR=shigy09
+
+WORKDIR /app
+
+ADD target/*.jar /app/app.jar
+ADD startsmppsim.sh /app/startsmppsim.sh
+ADD src/main/resources/logging.properties /app/conf/logging.properties
+ADD src/main/resources/smppsim.props /app/conf/smppsim.props
+
+RUN chmod +x /app/startsmppsim.sh
+
+EXPOSE 2775
+
+EXPOSE 8885
+
+WORKDIR /app
+
+####还没测试通过
+CMD ["/app/startsmppsim.sh"]

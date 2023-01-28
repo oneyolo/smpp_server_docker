@@ -1,0 +1,1 @@
+java -Djava.net.preferIPv4Stack=true -Xdebug -Xrunjdwp:transport=dt_socket,address=5000,server=y,suspend=y -Djava.util.logging.config.file=conf\logging.properties -jar app.jar conf\smppsim.props

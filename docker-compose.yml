@@ -1,0 +1,11 @@
+version: '1.0'
+
+services:
+  SMPP:
+    build:
+      dockerfile: Dockerfile
+    image: smppsim:3.3
+    ports:
+      - 2775:2775
+      - 8885:8885
+    restart: always
