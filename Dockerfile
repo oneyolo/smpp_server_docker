@@ -19,5 +19,4 @@ EXPOSE 8885
 
 WORKDIR /app
 
-####还没测试通过
 CMD ["/app/startsmppsim.sh"]
