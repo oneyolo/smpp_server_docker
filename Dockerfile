@@ -1,9 +1,5 @@
 FROM openjdk:8
 
-MAINTAINER "shigy09@chinatelecom.cn"
-
-LABEL AUTHOR=shigy09
-
 WORKDIR /app
 
 ADD target/*.jar /app/app.jar
